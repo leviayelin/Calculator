@@ -3,6 +3,7 @@ let calcBtnEl = document.querySelectorAll('.calc-btn');
 const screenContent = document.querySelector('.screen .content');
 const clearEl = document.querySelector('.clear');
 const resultEl = document.querySelector('.result');
+let x = false;
  
 calcBtnEl.forEach(btn =>{
     btn.addEventListener('click', e=>{
@@ -13,8 +14,9 @@ calcBtnEl.forEach(btn =>{
             if(['+','-','*','/'].includes(value) && current === '') return;
             if (['+', '-', '*', '/'].includes(value) && ['+', '-', '*', '/'].includes(current.slice(-1))) return;
             
-            if(current === 'ERROR'){    
+            if(current === 'ERROR' || x == true){    
                 screenContent.value = value;
+                x = false;
             }else{
                 screenContent.value += value;
             }    
@@ -33,14 +35,16 @@ const calculate = () =>{
         if(/^[0-9+\-*/.]+$/.test(expression)){
             const result = Function(`return ${expression}`)();
             screenContent.value = result;
+            x = true;
         }else{
             screenContent.value = 'ERROR';
         }
     }
     catch(err){
-       screenContent.value = 'ERROR';
+        screenContent.value = 'ERROR';
     }
 };
+
 
 // Run section 
 // Clear screen 
