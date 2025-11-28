@@ -1,12 +1,12 @@
-# Calculator
+# 🧮 Calculator
 A simple Calculator
 ###
-## technology
+## ⚙️ technology
 - HTML
 - CSS
 - Javascript
 ###
-## features
+## ➕ features
 - all simple math operator function +,-,/,*
 - ERROR alert
 - float numbers
