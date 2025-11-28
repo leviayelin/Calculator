@@ -1,4 +1,4 @@
-// Selectors section 
+// ===== Selectors section =====
 let calcBtnEl = document.querySelectorAll('.calc-btn');
 const screenContent = document.querySelector('.screen .content');
 const clearEl = document.querySelector('.clear');
@@ -27,11 +27,12 @@ calcBtnEl.forEach(btn =>{
     })
 });
 
-// Function section 
+// ===== Function section =====
 // claculate  
 const calculate = () =>{
     try{
         const expression = screenContent.value;
+        // regex parameters
         if(/^[0-9+\-*/.]+$/.test(expression)){
             const result = Function(`return ${expression}`)();
             screenContent.value = result;
@@ -46,7 +47,7 @@ const calculate = () =>{
 };
 
 
-// Run section 
+// ===== Event listener section =====
 // Clear screen 
 clearEl.addEventListener('click', ()=> screenContent.value = '' );
 resultEl.addEventListener('click', calculate);
